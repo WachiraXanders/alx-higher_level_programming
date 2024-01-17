@@ -1,2 +1,2 @@
 #!/usr/bin/python3
-with open('zen_of_python.txt') as f: print(f.read(), end=' ')
+print(open('zen_of_python.txt').read(), end=' ')
