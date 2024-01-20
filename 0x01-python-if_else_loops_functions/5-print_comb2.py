@@ -4,4 +4,3 @@ for x in range(100):
         print('{},'.format(str(x).zfill(2)), end=' ')
     else:
         print('{}\n'.format(str(x).zfill(2)), end='')
-        
