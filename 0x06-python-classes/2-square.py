@@ -4,22 +4,63 @@
 
 class Square:
     """Represents a square."""
-    id = 89
-    name = "no name"
-    __password = None
-
-    def __init__(self, new_name=None):
-        """Initialize a square with an optional name.
+    def __init__(self, size=0):
+        """Initialize a square with an optional size.
 
         Args:
-            new_name (str, optional): The name for the square.
+            size (int, optional): The size of the square. Defaults to 0.
+        
+        Raises:
+            TypeError: If size is not an integer.
+            ValueError: If size is less than 0.
         """
-        self.is_new = True
-        if new_name is not None:
-            self.name = new_name
+        if not isinstance(size, int):
+            raise TypeError("size must be an integer")
+        elif size < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = size
+
+    @property
+    def size(self):
+        """Get the size of the square.
+
+        Returns:
+            int: The size of the square.
+        """
+        return self.__size
 
 
 if __name__ == "__main__":
     # Example usage
-    u = Square("John")
-    print(u.name)
+    my_square_1 = Square(3)
+    print(type(my_square_1))
+    print(my_square_1.__dict__)
+
+    my_square_2 = Square()
+    print(type(my_square_2))
+    print(my_square_2.__dict__)
+
+    try:
+        print(my_square_1.size)
+    except Exception as e:
+        print(e)
+
+    try:
+        print(my_square_1.__size)
+    except Exception as e:
+        print(e)
+
+    try:
+        my_square_3 = Square("3")
+        print(type(my_square_3))
+        print(my_square_3.__dict__)
+    except Exception as e:
+        print(e)
+
+    try:
+        my_square_4 = Square(-89)
+        print(type(my_square_4))
+        print(my_square_4.__dict__)
+    except Exception as e:
+        print(e)
