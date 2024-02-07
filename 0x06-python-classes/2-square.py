@@ -5,21 +5,16 @@
 class Square:
     """Represents a square."""
     def __init__(self, size=0):
-        """Initialize a square with an optional size.
+        """Initialize a square.
 
         Args:
             size (int, optional): The size of the square. Defaults to 0.
-        
+
         Raises:
             TypeError: If size is not an integer.
             ValueError: If size is less than 0.
         """
-        if not isinstance(size, int):
-            raise TypeError("size must be an integer")
-        elif size < 0:
-            raise ValueError("size must be >= 0")
-        else:
-            self.__size = size
+        self.size = size
 
     @property
     def size(self):
@@ -30,37 +25,28 @@ class Square:
         """
         return self.__size
 
+    @size.setter
+    def size(self, value):
+        """Set the size of the square.
 
-if __name__ == "__main__":
-    # Example usage
-    my_square_1 = Square(3)
-    print(type(my_square_1))
-    print(my_square_1.__dict__)
+        Args:
+            value (int): The size of the square.
 
-    my_square_2 = Square()
-    print(type(my_square_2))
-    print(my_square_2.__dict__)
+        Raises:
+            TypeError: If value is not an integer.
+            ValueError: If value is less than 0.
+        """
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        elif value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
 
-    try:
-        print(my_square_1.size)
-    except Exception as e:
-        print(e)
+    def area(self):
+        """Calculate the area of the square.
 
-    try:
-        print(my_square_1.__size)
-    except Exception as e:
-        print(e)
-
-    try:
-        my_square_3 = Square("3")
-        print(type(my_square_3))
-        print(my_square_3.__dict__)
-    except Exception as e:
-        print(e)
-
-    try:
-        my_square_4 = Square(-89)
-        print(type(my_square_4))
-        print(my_square_4.__dict__)
-    except Exception as e:
-        print(e)
+        Returns:
+            int: The area of the square.
+        """
+        return self.__size ** 2
