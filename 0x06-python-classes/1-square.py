@@ -4,22 +4,36 @@
 
 class Square:
     """Represents a square."""
-    id = 89
-    name = "no name"
-    __password = None
-
-    def __init__(self, new_name=None):
-        """Initialize a square with an optional name.
+    def __init__(self, size):
+        """Initialize a square with a given size.
 
         Args:
-            new_name (str, optional): The name for the square.
+            size (int): The size of the square.
         """
-        self.is_new = True
-        if new_name is not None:
-            self.name = new_name
+        self.__size = size
+
+    @property
+    def size(self):
+        """Get the size of the square.
+
+        Returns:
+            int: The size of the square.
+        """
+        return self.__size
 
 
 if __name__ == "__main__":
     # Example usage
-    u = Square("John")
-    print(u.name)
+    my_square = Square(3)
+    print(type(my_square))
+    print(my_square.__dict__)
+
+    try:
+        print(my_square.size)
+    except Exception as e:
+        print(e)
+
+    try:
+        print(my_square.__size)
+    except Exception as e:
+        print(e)
