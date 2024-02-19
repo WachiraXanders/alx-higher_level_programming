@@ -1,0 +1,20 @@
+def test_my_list():
+    # Test Case 1
+    my_list = MyList()
+    my_list.append(1)
+    my_list.append(4)
+    my_list.append(2)
+    my_list.append(3)
+    my_list.append(5)
+    assert str(my_list) == '[1, 4, 2, 3, 5]', "Test Case 1 Failed"
+
+    # Test Case 2
+    my_list.print_sorted()
+    assert str(my_list) == '[1, 2, 3, 4, 5]', "Test Case 2 Failed"
+
+    # Test Case 3
+    assert str(my_list) == '[1, 4, 2, 3, 5]', "Test Case 3 Failed"
+
+if __name__ == "__main__":
+    test_my_list()
+

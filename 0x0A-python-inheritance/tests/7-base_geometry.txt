@@ -1,0 +1,34 @@
+def test_base_geometry():
+    bg = BaseGeometry()
+
+    # Test valid integer values
+    try:
+        bg.integer_validator("my_int", 12)
+        bg.integer_validator("width", 89)
+        print("Valid integer values test passed")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test non-integer value
+    try:
+        bg.integer_validator("name", "John")
+        print("Non-integer value test failed")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test integer value less than or equal to 0
+    try:
+        bg.integer_validator("age", 0)
+        print("Integer value less than or equal to 0 test failed")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+    # Test negative integer value
+    try:
+        bg.integer_validator("distance", -4)
+        print("Negative integer value test failed")
+    except Exception as e:
+        print("[{}] {}".format(e.__class__.__name__, e))
+
+if __name__ == "__main__":
+    test_base_geometry()
